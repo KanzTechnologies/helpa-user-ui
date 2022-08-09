@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Fellix';
+  src: url('../public/fonts/Fellix-Regular.eot');
+  src: local('../public/fonts/Fellix Regular'), local('Fellix-Regular'),
+      url('../public/fonts/Fellix-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../public/fonts/Fellix-Regular.woff2') format('woff2'),
+      url('../public/fonts/Fellix-Regular.woff') format('woff'),
+      url('../public/fonts/Fellix-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*::after,
+*::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  box-sizing: inherit;
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Fellix';
+}
+
+html,body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+input, 
+textarea, 
+button {
+  font-family: inherit;
+}
+
+@media (max-width: 1000px){
+  html{
+    font-size: 56.25%;
+  }
+}

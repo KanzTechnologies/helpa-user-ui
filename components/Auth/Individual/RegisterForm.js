@@ -2,6 +2,7 @@ import Button from "@components/Button/Button";
 import InputField, { Label } from "@components/InputField/InputField";
 import { RegularText } from "@components/Typography/Typography";
 import { Divider } from "@components/Utilities/Utilities";
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
@@ -63,9 +64,11 @@ export default function IndividualRegisterForm() {
         </Button>
         <RegisteredContainer>
           <RegularText>Registered fundraiser?</RegularText>
-          <RegularText color="#0C96C4" fontWeight="600" margin="0 0 0 0.9rem">
-            Log in
-          </RegularText>
+          <Link href="login" passHref>
+            <RegularText color="#0C96C4" cursor="pointer" fontWeight="600" margin="0 0 0 0.9rem">
+              Log in
+            </RegularText>
+          </Link>
         </RegisteredContainer>
       </SubmitButtonContainer>
     </>

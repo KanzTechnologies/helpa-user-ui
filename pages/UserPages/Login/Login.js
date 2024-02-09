@@ -6,7 +6,6 @@ import { Flex } from '@components/Utilities/Utilities'
 import UserAuth from '@sections/UserAuth/UserAuth'
 import Link from 'next/link'
 import Head from 'next/head' 
-import Link from 'next/link'
 
 
 const iconStyles = {

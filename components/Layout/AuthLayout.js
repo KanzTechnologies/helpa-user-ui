@@ -1,4 +1,3 @@
-import { Flex } from "@components/Utilities/Utilities";
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";

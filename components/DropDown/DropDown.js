@@ -55,7 +55,11 @@ const DropDown = ({ children, label, top }) => {
   return (
     <DropDownContainer ref={containerRef}>
       <DropDownLabel onClick={toggleIsOpen}>{label}</DropDownLabel>
-      {isOpen && <DropDownBody top={top}>{children}</DropDownBody>}
+      {isOpen && (
+        <DropDownBody top={top} onClick={toggleIsOpen}>
+          {children}
+        </DropDownBody>
+      )}
     </DropDownContainer>
   );
 };

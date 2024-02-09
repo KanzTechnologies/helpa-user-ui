@@ -1,17 +1,12 @@
-import Button from "@components/Button/Button";
 import DropDown, {
   DropDownItems,
   DropDownList,
 } from "@components/DropDown/DropDown";
-import InputField, { Label } from "@components/InputField/InputField";
 import { BadgeLink } from "@components/Link/Link";
 import {
-  LargeHeader,
-  LargeHeaderDark,
   MediumHeaderDark,
   RegularText,
 } from "@components/Typography/Typography";
-import { Divider } from "@components/Utilities/Utilities";
 import React, { useMemo, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import styled from "styled-components";
@@ -59,10 +54,8 @@ const dropdownOptions = [
   { value: "NGO", label: "NGO" },
 ];
 
-export default function IndividualRegister() {
-  const [dropdownValue, setDropdownValue] = useState(dropdownOptions[1]);
-
-  console.log(dropdownValue);
+export default function Register() {
+  const [dropdownValue, setDropdownValue] = useState(dropdownOptions[0]);
 
   const content = useMemo(() => {
     switch (dropdownValue.value) {
@@ -93,7 +86,7 @@ export default function IndividualRegister() {
             <RegularText>Step 1 of 3</RegularText>
           </StepContainer>
           <ReasonContainer>
-            <RegularText fontWeight="600" fontSize="18px">
+            <RegularText margin="0 0.9rem 0 0" fontWeight="600" fontSize="18px">
               I am raising funds for
             </RegularText>
             <BadgeLink>

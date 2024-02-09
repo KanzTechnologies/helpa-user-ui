@@ -23,7 +23,7 @@ export const MediumHeader = styled.h3`
 
 export const MediumHeaderDark = styled(MediumHeader)`
   color: ${({ theme, color }) => color || theme.text};
-  margin: 2rem 0;
+  margin: ${({ margin }) => (!margin ? "2rem 0" : margin)};
 `;
 
 export const RegularText = styled.p`
@@ -32,6 +32,7 @@ export const RegularText = styled.p`
   text-align: ${({ textAlign }) => (!textAlign ? "initial" : textAlign)};
   font-weight: ${({ fontWeight }) => fontWeight};
   margin: ${({ margin }) => margin};
+  cursor: ${({ cursor }) => cursor};
   width: ${({ width }) => width};
 `;
 export const LargeRegularText = styled(RegularText)`

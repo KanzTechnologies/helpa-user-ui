@@ -15,6 +15,12 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: 420px;
   margin: 4rem auto;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem;
+  }
 `;
 
 export default function Login() {

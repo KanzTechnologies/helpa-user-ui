@@ -23,6 +23,10 @@ const ImageSection = styled.div`
   background-position-x: 40%;
   background-position-y: bottom;
   background-repeat: no-repeat;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const FormSection = styled.div`
@@ -30,6 +34,11 @@ const FormSection = styled.div`
   background: ${({ theme }) => theme.body};
   padding: 2rem;
   overflow: auto;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    flex: 0 0 100%;
+  }
 `;
 
 const LogoWrapper = styled.div`
@@ -44,6 +53,10 @@ const TextWrapper = styled.div`
   justify-content: center;
   opacity: 0.7;
   color: ${({ theme }) => theme.dull};
+
+  @media (max-width: 1024px) {
+    margin-top: 8rem;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -52,6 +65,11 @@ const TextContainer = styled.div`
   text-align: center;
   border-radius: 16px;
   padding: 24px;
+
+  @media (max-width: 1024px) {
+    width: 300px;
+    padding: 16px;
+  }
 `;
 
 const TextHeader = styled.h1`
@@ -59,12 +77,21 @@ const TextHeader = styled.h1`
   font-weight: 600;
   margin-bottom: 8px;
   color: black;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
 `;
 
 const TextBody = styled.p`
   font-size: 14px;
   font-weight: 400;
   color: black;
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+    padding: 0 8px;
+  }
 `;
 
 export default function AuthLayout({ children }) {

@@ -19,6 +19,10 @@ export const MediumHeader = styled.h3`
   color: ${({ theme }) => theme.dull};
   text-align: ${({ textAlign }) => (!textAlign ? "initial" : textAlign)};
   text-transform: ${({ textTransform }) => textTransform};
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const MediumHeaderDark = styled(MediumHeader)`
@@ -34,6 +38,10 @@ export const RegularText = styled.p`
   margin: ${({ margin }) => margin};
   cursor: ${({ cursor }) => cursor};
   width: ${({ width }) => width};
+
+  @media (max-width: 768px) {
+    font-size: ${({ mdFontSize }) => mdFontSize || "1.5rem"};
+  }
 `;
 export const LargeRegularText = styled(RegularText)`
   font-size: 1.8rem;

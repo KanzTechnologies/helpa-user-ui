@@ -21,6 +21,20 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: 500px;
   margin: 4rem auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem;
+    margin: 2rem auto;
+  }
+`;
+
+const HeaderContainer = styled.div`
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 `;
 
 const StepContainer = styled.div`
@@ -80,38 +94,46 @@ export default function Register() {
     <>
       <Wrapper>
         <Container>
-          <MediumHeaderDark>Register</MediumHeaderDark>
-          <StepContainer>
-            <StepRectangle />
-            <RegularText>Step 1 of 3</RegularText>
-          </StepContainer>
-          <ReasonContainer>
-            <RegularText margin="0 0.9rem 0 0" fontWeight="600" fontSize="18px">
-              I am raising funds for
-            </RegularText>
-            <BadgeLink>
-              <DropDown
-                label={
-                  <>
-                    {dropdownValue.label}
-                    <FiChevronDown style={iconStyles} />
-                  </>
-                }
-                top="28%"
+          <HeaderContainer>
+            <MediumHeaderDark>Register</MediumHeaderDark>
+            <StepContainer>
+              <StepRectangle />
+              <RegularText>Step 1 of 3</RegularText>
+            </StepContainer>
+            <ReasonContainer>
+              <RegularText
+                margin="0 0.9rem 0 0"
+                fontWeight="600"
+                fontSize="18px"
+                mdFontSize="16px"
               >
-                <DropDownItems>
-                  {dropdownOptions.map((option, index) => (
-                    <DropDownList
-                      key={index}
-                      onClick={() => setDropdownValue(option)}
-                    >
-                      {option.label}
-                    </DropDownList>
-                  ))}
-                </DropDownItems>
-              </DropDown>
-            </BadgeLink>
-          </ReasonContainer>
+                I am raising funds for
+              </RegularText>
+              <BadgeLink>
+                <DropDown
+                  label={
+                    <>
+                      {dropdownValue.label}
+                      <FiChevronDown style={iconStyles} />
+                    </>
+                  }
+                  top="28%"
+                  mdTop="25%"
+                >
+                  <DropDownItems>
+                    {dropdownOptions.map((option, index) => (
+                      <DropDownList
+                        key={index}
+                        onClick={() => setDropdownValue(option)}
+                      >
+                        {option.label}
+                      </DropDownList>
+                    ))}
+                  </DropDownItems>
+                </DropDown>
+              </BadgeLink>
+            </ReasonContainer>
+          </HeaderContainer>
           {content}
         </Container>
       </Wrapper>

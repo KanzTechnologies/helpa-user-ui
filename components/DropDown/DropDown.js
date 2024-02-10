@@ -18,6 +18,10 @@ export const DropDownBody = styled.div`
   top: ${({ top }) => top || "20%"};
   z-index: 2;
   transition: all 1s ease;
+
+  @media (max-width: 768px) {
+    top: ${({ mdTop }) => mdTop || "20%"};
+  }
 `;
 
 export const DropDownItems = styled.ul`

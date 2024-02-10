@@ -7,7 +7,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FormContainer = styled.div`
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 `;
 
 const SubmitButtonContainer = styled.div`
@@ -15,14 +15,15 @@ const SubmitButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
+  margin-top: 3rem;
 `;
 
 const RegisteredContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 20rem;
+  margin-top: 2.5rem;
+  margin-bottom: 25rem;
 `;
 
 export default function IndividualRegisterForm() {
@@ -57,20 +58,25 @@ export default function IndividualRegisterForm() {
           <Label>Address</Label>
           <InputField type="text" placeholder="Lagos, Nigeria" radius=".5rem" />
         </Divider>
+        <SubmitButtonContainer>
+          <Button width="100%" borderRadius="3rem">
+            Next
+          </Button>
+          <RegisteredContainer>
+            <RegularText>Registered fundraiser?</RegularText>
+            <Link href="login" passHref>
+              <RegularText
+                color="#0C96C4"
+                cursor="pointer"
+                fontWeight="600"
+                margin="0 0 0 0.9rem"
+              >
+                Log in
+              </RegularText>
+            </Link>
+          </RegisteredContainer>
+        </SubmitButtonContainer>
       </FormContainer>
-      <SubmitButtonContainer>
-        <Button width="100%" borderRadius="3rem">
-          Next
-        </Button>
-        <RegisteredContainer>
-          <RegularText>Registered fundraiser?</RegularText>
-          <Link href="login" passHref>
-            <RegularText color="#0C96C4" cursor="pointer" fontWeight="600" margin="0 0 0 0.9rem">
-              Log in
-            </RegularText>
-          </Link>
-        </RegisteredContainer>
-      </SubmitButtonContainer>
     </>
   );
 }

@@ -10,11 +10,15 @@ const useForm = (initialState, validate) => {
       ...values,
       [name]: value,
     });
+
+    setErrors({
+      ...errors,
+      [name]: undefined,
+    });
   };
 
   const handleSubmit = (callback) => (event) => {
     event.preventDefault();
-    console.log("submitted");
     const validationErrors = validate(values);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {

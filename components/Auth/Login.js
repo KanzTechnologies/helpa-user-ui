@@ -5,7 +5,9 @@ import {
 } from "@components/Typography/Typography";
 import React, { useMemo, useState } from "react";
 import styled from "styled-components";
-import LoginForm from "./LoginForm";
+import LoginForm from "./Individual/LoginForm";
+import IndividualLoginForm from "./Individual/LoginForm";
+import NGOLoginForm from "./NGO/LoginForm";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -23,7 +25,7 @@ const Container = styled.div`
   }
 `;
 
-export default function Login() {
+export default function Login({ type }) {
   return (
     <>
       <Wrapper>
@@ -34,7 +36,7 @@ export default function Login() {
           <RegularText textAlign="center" fontWeight="400">
             To Login, input the details you registered with
           </RegularText>
-          <LoginForm />
+          {type === "individual" ? <IndividualLoginForm /> : <NGOLoginForm />}
         </Container>
       </Wrapper>
     </>

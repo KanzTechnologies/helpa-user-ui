@@ -48,37 +48,41 @@ const RegisteredContainer = styled.div`
   margin-bottom: 24rem;
 `;
 
-export default function LoginForm() {
+export default function IndividualLoginForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
   const initialState = {
     email: "",
-    name: "",
     password: "",
   };
 
   const validate = (values) => {
     const errors = {};
-    console.log(values);
     if (!values.email) {
       errors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
       errors.email = "Email address is invalid";
     }
-    if (!values.name) {
-      errors.name = "Name is required";
-    }
     if (!values.password) {
       errors.password = "Password is required";
-    } else if (values.password.length < 6) {
-      errors.password = "Password must be at least 6 characters long";
+    } else if (values.password.length < 8) {
+      errors.password = "Password must be at least 8 characters long";
+    } else if (values.password.length > 20) {
+      errors.password = "Password must be less than 20 characters long";
+    } else if (
+      !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/.test(
+        values.password
+      )
+    ) {
+      errors.password =
+        "Password must contain at least 8 characters with at least one lowercase letter, one uppercase letter, one number, and one special character";
     }
     return errors;
   };
 
-  const { loading, error, reset, login } = useAuth();
-  const { values, handleChange, handleSubmit, errors } = useForm(
+  const { loading, error, resetError, login } = useAuth();
+  const { values, handleChange, handleSubmit, reset, errors } = useForm(
     initialState,
     validate
   );
@@ -88,8 +92,8 @@ export default function LoginForm() {
   };
 
   const handleFormSubmit = async () => {
-    const success = await login(values);
-    if (success) {
+    const response = await login(values, "/auth/login");
+    if (response.status === 200) {
       reset();
       router.push("/dashboard");
       console.log("Registration successful!");
@@ -113,20 +117,10 @@ export default function LoginForm() {
             radius=".5rem"
           />
           {errors.email && (
-            <RegularText fontSize="1.3rem" fontWeight="500" color="red">{errors.email}</RegularText>
+            <RegularText fontSize="1.3rem" fontWeight="500" color="red">
+              {errors.email}
+            </RegularText>
           )}
-        </Divider>
-        <Divider topBottom="0.5rem">
-          <Label>Organization / Full name</Label>
-          <InputField
-            type="text"
-            placeholder="John Doe"
-            radius=".5rem"
-            name="name"
-            value={values.name}
-            onChange={handleChange}
-          />
-          {errors.name && <RegularText fontSize="1.3rem" fontWeight="500" color="red">{errors.name}</RegularText>}
         </Divider>
         <Divider topBottom="0.5rem">
           <Label>Password</Label>
@@ -148,7 +142,9 @@ export default function LoginForm() {
             </EyeIcon>
           </PasswordContainer>
           {errors.password && (
-            <RegularText fontSize="1.3rem"  color="red">{errors.password}</RegularText>
+            <RegularText fontSize="1.3rem" color="red">
+              {errors.password}
+            </RegularText>
           )}
         </Divider>
         <ForgotPasswordContainer>
@@ -167,7 +163,7 @@ export default function LoginForm() {
           </Button>
           <RegisteredContainer>
             <RegularText>New Fundraiser?</RegularText>
-            <Link href="register" passHref>
+            <Link href="/crowdfunding/auth/register" passHref>
               <RegularText
                 color="#0C96C4"
                 cursor="pointer"

@@ -7,7 +7,7 @@ export default function LoginPage() {
   return (
     <>
       <Head>
-        <title>Helpa - Crowdfunding Login Page</title>
+        <title>Helpa - Crowdfunding Individual Login Page</title>
         <meta
           name="description"
           content="Donate and raise funds easily with Helpa"
@@ -15,7 +15,7 @@ export default function LoginPage() {
         <link rel="icon" href="/images/png/favicon.png" />
       </Head>
 
-      <Login />
+      <Login type="individual" />
     </>
   );
 }
